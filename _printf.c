@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include "main.h"
 /**
  * _printf - prints anything
  * @format: format of the arguments
@@ -22,7 +23,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					{
-						_putchar(va_arg(args, int););
+						_putchar(va_arg(args, int));
 						count++;
 						break;
 					}
@@ -32,8 +33,8 @@ int _printf(const char *format, ...)
 
 						while (*c)
 						{
-							putchar(*c++);
-							count++
+							_putchar(*c++);
+							count+;+
 						}
 						break;
 					}
@@ -47,8 +48,9 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			putchar(*format);
+			_putchar(*format);
 			count++;
+			*format++;
 		}
 	}
 	va_end(args);
