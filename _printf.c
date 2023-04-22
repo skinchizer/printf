@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count;
+	int count = 0;
 	va_list args;
 
 	if (format == NULL)
@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			*format++;
+			format++;
 			switch (*format)
 			{
 				case 'c':
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 						while (*c)
 						{
 							_putchar(*c++);
-							count+;+
+							count++;
 						}
 						break;
 					}
@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 		{
 			_putchar(*format);
 			count++;
-			*format++;
+			format++;
 		}
 	}
 	va_end(args);
