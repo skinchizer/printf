@@ -1,58 +1,43 @@
-#include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
 /**
- * _printf - prints anything
- * @format: format of the arguments
+ * _printf - my printf
+ * @format: list of formats
+ * Return: printed characters number
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	va_list args;
+	va_list list;
+	int i = 0, count = 0;
 
-	if (format == NULL)
-		return (-1);
-
-	va_start(args, format);
-	while (*format)
+	va_start(list, format);
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
-			switch (*format)
+			i++;
+			if (format[i] == 'c')
+				count += print_char(list);
+			else if (format[i] == 's')
+				count += print_string(list);
+			else if (format[i] == '%')
+				count += print_percent();
+			else
 			{
-				case 'c':
-					{
-						_putchar(va_arg(args, int));
-						count++;
-						break;
-					}
-				case 's':
-					{
-						char *c = va_arg(args, char *);
-
-						while (*c)
-						{
-							_putchar(*c++);
-							count++;
-						}
-						break;
-					}
-				case '%':
-					{
-						_putchar('%');
-						count++;
-						break;
-					}
+				_putchar('%');
+				if (format[i] != '\0')
+					_putchar(format[i]);
+				else 
+					return (-1);
+				count += 2;
 			}
 		}
-		else
+		else 
 		{
-			_putchar(*format);
+			_putchar(format[i]);
 			count++;
 		}
-		format++;
 	}
-	va_end(args);
+	va_end(list);
 	return (count);
 }
