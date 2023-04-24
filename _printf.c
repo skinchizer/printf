@@ -27,12 +27,12 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				if (format[i] != '\0')
 					_putchar(format[i]);
-				else 
+				else
 					return (-1);
 				count += 2;
 			}
 		}
-		else 
+		else
 		{
 			_putchar(format[i]);
 			count++;
