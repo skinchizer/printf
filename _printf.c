@@ -26,8 +26,11 @@ int _printf(const char *format, ...)
 				count += print_string(list);
 			else if (format[i] == '%')
 				count += print_percent();
+			else if (format[i] == '\0')
+				break;
 			else
 			{
+				_putchar('%');
 				if (format[i] != '\0')
 					_putchar(format[i]);
 				else
