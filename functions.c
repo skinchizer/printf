@@ -29,7 +29,6 @@ int print_string(va_list format)
 		_putchar(str[i]);
 		i++;
 	}
-	_putchar('\0');
 	return (i);
 }
 /**
