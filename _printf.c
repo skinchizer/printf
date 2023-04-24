@@ -13,11 +13,11 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-
 	va_start(list, format);
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (format[i] == '%'){
+		if (format[i] == '%')
+		{
 			i++;
 			switch (format[i])
 			{
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					count += print_string(list);
-					break;
+		i			break;
 				case '%':
 					count += print_percent();
 					break;
@@ -41,7 +41,8 @@ int _printf(const char *format, ...)
 					count += 2;
 			}
 		}
-		else{
+		else
+		{
 			_putchar(format[i]);
 			count++;
 		}
