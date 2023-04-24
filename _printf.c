@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					count += print_string(list);
-		i			break;
+					break;
 				case '%':
 					count += print_percent();
 					break;
