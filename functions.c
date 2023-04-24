@@ -4,7 +4,7 @@
 /**
  * print_char - prints a character
  * @format: list of formats
- * Return: the character 
+ * Return: the character
  */
 int print_char(va_list format)
 {
