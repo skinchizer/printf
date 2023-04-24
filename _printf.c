@@ -20,22 +20,26 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == 'c')
-				count += print_char(list);
-			else if (format[i] == 's')
-				count += print_string(list);
-			else if (format[i] == '%')
-				count += print_percent();
-			else if (format[i] == '\0')
-				return (-1);
-			else
+			switch (format[i])
 			{
-				_putchar('%');
-				if (format[i] != '\0')
-					_putchar(format[i]);
-				else
+				case 'c':
+					count += print_char(list);
+					break;
+				case 's':
+					count += print_string(list);
+					break;
+				case '%':
+					count += print_percent();
+					break;
+				case '\0':
 					return (-1);
-				count += 2;
+				default:
+					_putchar('%');
+					if (format[i] != '\0')
+						_putchar(format[i]);
+					else
+						return (-1);
+					count += 2;
 			}
 		}
 		else
