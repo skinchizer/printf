@@ -38,4 +38,4 @@ int print_string(va_list format)
 int print_percent(void)
 {
 	return (_putchar('%'));
-}
+}//functions
