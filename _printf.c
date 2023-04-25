@@ -14,12 +14,12 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
-	for (z = 0; format && format[z] != '\0'; z++)
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (format[z] == '%')
+		if (format[i] == '%')
 		{
-			z++;
-			switch (format[z])
+			i++;
+			switch (format[i])
 			{
 				case 'c':
 					count += print_char(list);
@@ -34,8 +34,8 @@ int _printf(const char *format, ...)
 					return (-1);
 				default:
 					_putchar('%');
-					if (format[z] != '\0')
-						_putchar(format[z]);
+					if (format[i] != '\0')
+						_putchar(format[i]);
 					else
 						return (-1);
 					count += 2;
@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(format[z]);
+			_putchar(format[i]);
 			count++;
 		}
 	}
