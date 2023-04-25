@@ -39,6 +39,11 @@ int print_percent(void)
 {
 	return (_putchar('%'));
 }
+/**
+ * print_d - prints integer
+ * @arg: list of formats
+ * Return: printed integers
+ */
 int print_d(va_list arg)
 {
   int n = va_arg(arg, int);

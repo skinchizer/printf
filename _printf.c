@@ -31,10 +31,10 @@ int _printf(const char *format, ...)
 					count += print_percent();
 					break;
 				case 'd':
-					count += print_d(va_list arg);
+					count += print_d(list);
 					break;
 				case 'i':
-                                        count += print_d(va_list arg);
+                                        count += print_d(list);
                                         break;
 				case '\0':
 					return (-1);
