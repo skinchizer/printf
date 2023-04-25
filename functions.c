@@ -46,7 +46,7 @@ int print_percent(void)
  */
 int print_d(va_list arg)
 {
-  int n = va_arg(arg, int);
+  long int n = va_arg(arg, long int);
   int divisor = 1, count = 0;
 
   if (n < 0) {
