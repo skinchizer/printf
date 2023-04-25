@@ -47,7 +47,7 @@ int print_percent(void)
 int print_d(va_list arg)
 {
   long int n = va_arg(arg, long int);
-  int divisor = 1, count = 0;
+  long int divisor = 1, count = 0;
 
   if (n < 0) {
     _putchar('-');
