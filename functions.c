@@ -47,16 +47,9 @@ int print_percent(void)
  */
 int print_d(va_list arg)
 {
-	long int n = va_arg(arg, int);
+	int n = va_arg(arg, int);
 	int divisor = 1, count = 0;
 
-	if (n == INT_MIN)
-	{
-		_putchar('-');
-		_putchar('2');
-		n = 147483648;
-		count += 2;
-	}
 	if (n < 0)
 	{
 		_putchar('-');
