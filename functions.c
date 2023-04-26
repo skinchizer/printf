@@ -46,30 +46,27 @@ int print_percent(void)
  */
 int print_d(va_list arg)
 {
-  int n = va_arg(arg, int);
-  int divisor = 1, count = 0;
+	int n = va_arg(arg, int);
+	int divisor = 1, count = 0;
 
-  if (n == 0)
-  {
-	  _putchar('0');
-	  return 1;
-  }
-
-  if (n < 0) {
-    _putchar('-');
-    n = (-1 * n);
-    count++;
-  }
-
-  while (n / divisor >= 10)
-    divisor *= 10;
-
-  while (divisor != 0) {
-    _putchar('0' + n / divisor);
-    n %= divisor;
-    divisor /= 10;
-    count++;
-  }
-
-  return (count);
+	if (n == 0)
+	{
+		_putchar('0');
+		return 1;
+	}
+	if (n < 0)
+	{
+		_putchar('-');
+		n = (unsigned int)(-1 * n);
+		count++;
+	}
+	while (n / divisor >= 10)
+		divisor *= 10;
+	while (divisor != 0) {
+		_putchar('0' + n / divisor);
+		n %= divisor;
+		divisor /= 10;
+		count++;
+	}
+	return (count);
 }
