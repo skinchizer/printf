@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
+#include <limits.h>
 /**
  * print_char - prints a character
  * @format: list of formats
@@ -49,15 +50,17 @@ int print_d(va_list arg)
 	int n = va_arg(arg, int);
 	int divisor = 1, count = 0;
 
-	if (n == 0)
+	if (n == INT_MIN)
 	{
-		_putchar('0');
-		return 1;
+		_putchar('-');
+		_putchar('2');
+		n = 147483648;
+		count += 2;
 	}
 	if (n < 0)
 	{
 		_putchar('-');
-		n = (unsigned int)(-1 * n);
+		n *= 1;
 		count++;
 	}
 	while (n / divisor >= 10)

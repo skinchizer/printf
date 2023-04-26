@@ -12,6 +12,6 @@ int main(void)
     int len;
 
     len = _printf("please work\n");
-    _printf("Length:[%d, %i]\n", len, -2147483647);
+    _printf("Length:[%d, %i]\n", len, -2147483648);
     return 0;
 }
