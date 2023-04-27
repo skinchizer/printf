@@ -65,7 +65,8 @@ int print_d(va_list arg)
 	}
 	while (n / divisor >= 10)
 		divisor *= 10;
-	while (divisor != 0) {
+	while (divisor != 0)
+	{
 		_putchar('0' + n / divisor);
 		n %= divisor;
 		divisor /= 10;
